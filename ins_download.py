@@ -47,7 +47,7 @@ if json2dict["code"] == 0:  # if it's a url from instagram
         os.makedirs(path)  # if there isn't such a file then create one
 
     for each_url in urls_pic:
-        picture = requests.get(each_url)  # get the url content
+        picture = requests.get(each_url, proxies=proxies)  # get the url content
         file_format = re.search(r'(?<=\.).{3,5}(?=\?)', each_url)
         # print(file_format)
         name = "picture/" + general_name + str(n).zfill(2) + "." + file_format.group()
